@@ -1,0 +1,17 @@
+{# app/Resources/views/lucky/number.html.twig #}
+{% extends "base.html.twig" %}
+{% block title %} Lucky number show to you {% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    〈link href="{{ asset('css/contact.css') }}" rel="stylesheet"/>
+{% endblock %}
+{% block body %}
+    <h1>Your lucky number is {{ number }}</h1>
+    <ul>
+        {% for i in nameIt %}
+            <li class=""><a href="{{ path('link_me', {'numberme': i})}}">{{i}}</a></li>
+            <img src="{{ asset('images/charitylogo.png') }}" alt=""/>
+            {{ include('lucky/list.html.twig', {'item': i}) }}
+        {% endfor %}   
+    </ul>
+{% endblock %}
